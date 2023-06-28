@@ -3,12 +3,15 @@ package client.portal.api.grails
 import grails.plugin.springsecurity.annotation.Secured
 import grails.rest.*
 import grails.converters.*
+import grails.plugin.springsecurity.SpringSecurityService
 
 class OrderController  {
-    static responseFormats = ['json', 'xml']
+    static responseFormats = ['json']
+    def springSecurityService
 
-    @Secured("permitAll")
+    @Secured("ROLE_ADMIN")
     def index() {
-        render 'hola'
+        def loggedInUser = springSecurityService.currentUser
+        render loggedInUser;
     }
 }

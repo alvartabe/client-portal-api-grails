@@ -10,7 +10,7 @@ class BootStrap {
 
     @Transactional
     void addTestUsers() {
-        Role role = new Role(authority: 'Admin').save()
+        Role role = new Role(authority: 'ROLE_ADMIN').save()
         User user = new User(username: 'alvartabe', password: 'virusnet').save()
         UserRole.create user, role
 

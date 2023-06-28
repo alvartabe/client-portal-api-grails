@@ -1,4 +1,8 @@
 grails.plugin.springsecurity.filterChain.chainMap = [
+		[
+				'/api/**': 'tokenValidationFilter,restTokenValidationFilter,restExceptionTranslationFilter,filterInvocationInterceptor',
+				'/**': 'JOINED_FILTERS'
+		],
         //Stateless chain
         [
                 pattern: '/**',
@@ -42,13 +46,41 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true
 grails.plugin.springsecurity.rest.token.storage.useGorm = true
 grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
-grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
+//grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'client.portal.api.grails.AuthenticationToken'
-grails.plugin.springsecurity.rest.token.storage.jwt.secret = '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'
+grails.plugin.springsecurity.rest.token.storage.jwt.secret = '0ca6549172f1236d29859ebb3c7cf1893a9225a4512b224735f175369a1202b9'
+grails.plugin.springsecurity.logout.postOnly = true
 
+logging.level.root = 'DEBUG'
 
-
-
-
+dataSource {
+	pooled = true
+	dbCreate = "update"
+	url = "jdbc:mysql://localhost:3306/client-portal-grails?serverTimezone=UTC"
+	driverClassName = "com.mysql.cj.jdbc.Driver"
+	dialect = org.hibernate.dialect.MySQL8Dialect
+	username = "root"
+	password = "1234"
+	logSql = true
+	properties {
+		jmxEnabled = true
+		initialSize = 5
+		maxActive = 50
+		minIdle = 5
+		maxIdle = 25
+		maxWait = 10000
+		maxAge = 10 * 60000
+		timeBetweenEvictionRunsMillis = 5000
+		minEvictableIdleTimeMillis = 60000
+		validationQuery = "SELECT 1"
+		validationQueryTimeout = 3
+		validationInterval = 15000
+		testOnBorrow = true
+		testWhileIdle = true
+		testOnReturn = false
+		jdbcInterceptors = "ConnectionState;StatementCache(max=200)"
+		defaultTransactionIsolation = java.sql.Connection.TRANSACTION_READ_COMMITTED
+	}
+}
 
 
