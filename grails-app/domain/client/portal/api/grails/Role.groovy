@@ -1,4 +1,4 @@
-package com.client.portal
+package client.portal.api.grails
 
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString

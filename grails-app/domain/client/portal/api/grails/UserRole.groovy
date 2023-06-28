@@ -1,4 +1,4 @@
-package com.client.portal
+package client.portal.api.grails
 
 import grails.gorm.DetachedCriteria
 import groovy.transform.ToString

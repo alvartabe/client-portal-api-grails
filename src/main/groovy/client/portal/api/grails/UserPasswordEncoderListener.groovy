@@ -1,4 +1,4 @@
-package com.client.portal
+package client.portal.api.grails
 
 import grails.plugin.springsecurity.SpringSecurityService
 import org.grails.datastore.mapping.engine.event.AbstractPersistenceEvent
