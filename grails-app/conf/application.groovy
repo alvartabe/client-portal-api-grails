@@ -2,7 +2,7 @@ grails.plugin.springsecurity.filterChain.chainMap = [
         //Stateless chain
         [
                 pattern: '/**',
-                filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
+				filters: 'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter,-rememberMeAuthenticationFilter'
         ],
 
         //Traditional, stateful chain
@@ -38,4 +38,17 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**/favicon.ico', filters: 'none'],
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+
+grails.plugin.springsecurity.rest.login.useJsonCredentials = true
+grails.plugin.springsecurity.rest.token.storage.useGorm = true
+grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
+grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
+grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'client.portal.api.grails.AuthenticationToken'
+grails.plugin.springsecurity.rest.token.storage.jwt.secret = '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'
+
+
+
+
+
+
 

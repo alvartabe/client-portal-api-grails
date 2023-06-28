@@ -125,11 +125,3 @@ environments:
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 
-grails:
-    plugin:
-        springsecurity:
-            rest:
-                token:
-                    storage:
-                        jwt:
-                            secret: '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'
