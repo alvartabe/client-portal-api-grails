@@ -1,8 +1,6 @@
 package client.portal.api.grails
-
 import grails.gorm.transactions.Transactional
 import grails.plugin.springsecurity.annotation.Secured
-import grails.rest.*
 import grails.converters.*
 
 @Transactional
@@ -16,7 +14,7 @@ class RegisterController {
             user.save(flush: true, failOnError: true)
             render user as JSON
         } else {
-            render 'error'
+            render status: 400, user.errors as JSON, contentType: 'application/json'
         }
     }
 }
