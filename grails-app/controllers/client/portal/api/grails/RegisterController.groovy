@@ -10,11 +10,24 @@ class RegisterController {
 
     @Secured("permitAll")
     def save(User user) {
-        if(user.validate()) {
-            user.save(flush: true, failOnError: true)
-            render user as JSON
-        } else {
-            render status: 400, user.errors as JSON, contentType: 'application/json'
+
+        Role role = Role.findByAuthority('ROLE_ADMIN');
+        if(!role) {
+            render status: 400, 'Invalid Role', contentType: 'application/json'
+            return
         }
+
+        if(!user.validate() || user.hasErrors()) {
+            render status: 400, user.errors as JSON, contentType: 'application/json'
+            return
+        }
+
+        user.save(failOnError: true)
+        UserRole.create user, role
+        UserRole.withSession {
+            it.flush()
+            it.clear()
+        }
+        render user as JSON
     }
 }

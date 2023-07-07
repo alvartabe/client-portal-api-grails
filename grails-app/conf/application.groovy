@@ -46,9 +46,9 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 grails.plugin.springsecurity.rest.login.useJsonCredentials = true
 grails.plugin.springsecurity.rest.token.storage.useGorm = true
 grails.plugin.springsecurity.rest.login.endpointUrl = '/api/login'
-//grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
 grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'client.portal.api.grails.AuthenticationToken'
 grails.plugin.springsecurity.rest.token.storage.jwt.secret = '0ca6549172f1236d29859ebb3c7cf1893a9225a4512b224735f175369a1202b9'
+grails.plugin.springsecurity.rest.token.storage.jwt.expiration = 3600;
 grails.plugin.springsecurity.logout.postOnly = true
 
 logging.level.root = 'DEBUG'
