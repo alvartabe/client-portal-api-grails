@@ -17,4 +17,11 @@ class UserController  {
         }
         render users as JSON;
     }
+
+// TODO: return logged user
+//    @Secured("ROLE_ADMIN")
+//    def index() {
+//        def loggedInUser = springSecurityService.currentUser
+//        render loggedInUser;
+//    }
 }
