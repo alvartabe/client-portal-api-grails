@@ -12,6 +12,7 @@ class UrlMappings {
 
         "/"(controller: 'application', action:'index')
         "/order"(controller: 'order', action:'index')
+        "/api/user"(controller: 'user', action:'index')
         "/api/register"(controller: 'register', action:'save')
         "500"(view: '/error')
         "404"(view: '/notFound')
