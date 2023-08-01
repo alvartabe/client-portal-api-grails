@@ -5,7 +5,7 @@ import grails.gorm.transactions.Transactional
 class BootStrap {
 
     def init = { servletContext ->
-        addTestUsers();
+        //addTestUsers();
     }
 
     @Transactional
@@ -22,4 +22,28 @@ class BootStrap {
 
     def destroy = {
     }
+
+//    def generateRandomUsers() {
+//        int numberOfUsers = 20
+//
+//        for (int i = 1; i <= numberOfUsers; i++) {
+//            String username = "user${i}"
+//            String password = RandomStringUtils.randomAlphanumeric(8)
+//            String email = "user${i}@example.com"
+//            String firstName = RandomStringUtils.randomAlphabetic(6)
+//            String lastName = RandomStringUtils.randomAlphabetic(8)
+//
+//            User user = new User(
+//                    username: username,
+//                    password: password,
+//                    email: email,
+//                    firstName: firstName,
+//                    lastName: lastName
+//            )
+//
+//            user.save(flush: true)
+//        }
+//    }
 }
+
+
